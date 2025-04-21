@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# If request is not a real file or directory
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Rewrite to redirect.php passing short code as query param
+RewriteRule ^([a-zA-Z0-9_-]+)$ redirect.php?c=$1 [L,QSA]
